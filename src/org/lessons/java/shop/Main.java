@@ -19,7 +19,9 @@ public class Main {
             String descProduct = scan.nextLine();
             System.out.println("quanto costa il prodotto?");
             double priceProduct = Double.parseDouble(scan.nextLine());
-            Prodotto product = new Prodotto(nameProduct,descProduct,priceProduct);
+            System.out.println("quanta è l'iva?");
+            int ivaProduct = Integer.parseInt(scan.nextLine());
+            Prodotto product = new Prodotto(nameProduct,descProduct,priceProduct,ivaProduct);
             listProducts[i]=product;
 
 
@@ -27,7 +29,8 @@ public class Main {
         }
         System.out.println("i tuoi prodotti");
         for (int i=0; i<listProducts.length;i++){
-            System.out.println("prodotto:"+ listProducts[i].getName()+" " + listProducts[i].getCode() +" "+ "descrizione:"+ " "+ listProducts[i].getDescription()+ " " + "prezzo"+" "+ listProducts[i].getPrice()+"€"+ " " + "prezzo con iva:"+ listProducts[i].getIva()+"€");
+
+            System.out.println("prodotto:"+ listProducts[i].getName()+" " + listProducts[i].infoCode() +" "+ "descrizione:"+ " "+ listProducts[i].getDescription()+ " " + "prezzo"+" "+ listProducts[i].getPrice()+"€"+ " " + "prezzo con iva:"+ listProducts[i].priceIva()+"€");
         }
 
 

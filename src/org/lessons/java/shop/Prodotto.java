@@ -13,12 +13,11 @@ public class Prodotto {
 
     //COSTRUTTORI
 
-    public Prodotto( String name, String description, double price) {
-        this.code = code;
+    public Prodotto( String name, String description, double price, int iva) {
         this.name = name;
         this.description = description;
         this.price = price;
-        this.iva = priceIva;
+        this.iva = iva;
     }
 
 
@@ -41,10 +40,10 @@ public class Prodotto {
         return price;
     }
 
-    public double getIva() {
+   /* public double getIva() {
         double priceIva = price * 1.22;
         return priceIva;
-    }
+    }*/
 
     public void setName(String name) {
         this.name = name;
@@ -67,5 +66,14 @@ public class Prodotto {
 
     public int codeProduct = randomCode.nextInt(1000000,99999999);
 
-    public double priceIva = price * 1.22;
+    public double priceIva (){
+        return price + (price*iva/100);
+    }
+
+    public String info(){
+        return name;
+    }
+    public String infoCode(){
+        return name+"-"+codeProduct;
+    }
 }
