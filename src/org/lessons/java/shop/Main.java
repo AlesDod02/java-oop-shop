@@ -35,7 +35,7 @@ public class Main {
 
 
             for (int j = 0; j < listProducts.length; j++) {
-                Categoria category = listProducts[j].getCategoria(); 
+                Categoria category = listProducts[j].getCategoria();
                 System.out.println("prodotto:" + listProducts[j].getName() + " " + listProducts[j].infoCode() + " " +
                         "descrizione:" + " " + listProducts[j].getDescription() + " " +
                         "prezzo" + " " + listProducts[j].getPrice() + "€" + " " +
