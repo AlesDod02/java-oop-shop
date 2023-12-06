@@ -2,35 +2,43 @@ package org.lessons.java.shop;
 
 public class Categoria {
     //ATTRIBUTI
-    private String name;
+    private String nameCategory;
 
-    private String description;
+    private String descriptionCategory;
 
     //COSTRUTTORI
 
     public Categoria(String name, String description) {
-        this.name = name;
-        this.description = description;
+        this.nameCategory = name;
+        this.descriptionCategory = description;
     }
 
 
     //GET AND SET
 
-    public String getName() {
-        return name;
+    public String getNameCategory() {
+        return nameCategory;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNameCategory(String nameCategory) {
+        this.nameCategory = nameCategory;
     }
 
-    public String getDescription() {
-        return description;
+    public String getDescriptionCategory() {
+        return descriptionCategory;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setDescriptionCategory(String description) {
+        this.descriptionCategory = description;
     }
 
     //MODULI
+
+
+    public String category(){
+        return nameCategory +" "+descriptionCategory;
+   }
+
+
+
 }

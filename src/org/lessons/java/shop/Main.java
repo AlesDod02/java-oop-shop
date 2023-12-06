@@ -12,7 +12,7 @@ public class Main {
 
         Prodotto[] listProducts = new Prodotto[numberOfProduct];
 
-        for (int i=0;i<listProducts.length;i++){
+        for (int i = 0; i < listProducts.length; i++) {
             System.out.println("come si chiama il prodotto?");
             String nameProduct = scan.nextLine();
             System.out.println("aggiungi una descrizione del prodotto");
@@ -21,21 +21,31 @@ public class Main {
             double priceProduct = Double.parseDouble(scan.nextLine());
             System.out.println("quanta è l'iva?");
             int ivaProduct = Integer.parseInt(scan.nextLine());
-            Prodotto product = new Prodotto(nameProduct,descProduct,priceProduct,ivaProduct);
-            listProducts[i]=product;
-
+            System.out.println("a che categoria appartiene ?");
+            String nameCategory = scan.nextLine();
+            System.out.println("inserisci descrizione categoria");
+            String descCategory = scan.nextLine();
+            Categoria newCategory = new Categoria(nameCategory, descCategory);
+            Prodotto product = new Prodotto(nameProduct, descProduct, priceProduct, ivaProduct, newCategory);
+            listProducts[i] = product;
 
 
         }
         System.out.println("i tuoi prodotti");
-        for (int i=0; i<listProducts.length;i++){
-
-            System.out.println("prodotto:"+ listProducts[i].getName()+" " + listProducts[i].infoCode() +" "+ "descrizione:"+ " "+ listProducts[i].getDescription()+ " " + "prezzo"+" "+ listProducts[i].getPrice()+"€"+ " " + "prezzo con iva:"+ listProducts[i].priceIva()+"€");
-        }
 
 
+            for (int j = 0; j < listProducts.length; j++) {
+                Categoria category = listProducts[j].getCategoria(); 
+                System.out.println("prodotto:" + listProducts[j].getName() + " " + listProducts[j].infoCode() + " " +
+                        "descrizione:" + " " + listProducts[j].getDescription() + " " +
+                        "prezzo" + " " + listProducts[j].getPrice() + "€" + " " +
+                        "prezzo con iva:" + listProducts[j].priceIva() + "€" +
+                        " Categoria: " + category.getNameCategory() + " " + category.getDescriptionCategory());
+            }
 
 
-        scan.close();
+            scan.close();
+
+
     }
 }

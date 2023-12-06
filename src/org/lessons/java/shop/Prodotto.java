@@ -10,14 +10,16 @@ public class Prodotto {
     private String description;
     private double price;
     private double iva;
+    private Categoria categoria;
 
     //COSTRUTTORI
 
-    public Prodotto( String name, String description, double price, int iva) {
+    public Prodotto(String name, String description, double price, int iva, Categoria categoria) {
         this.name = name;
         this.description = description;
         this.price = price;
         this.iva = iva;
+        this.categoria=categoria;
     }
 
 
@@ -38,6 +40,9 @@ public class Prodotto {
 
     public double getPrice() {
         return price;
+    }
+    public Categoria getCategoria() {
+        return categoria;
     }
 
    /* public double getIva() {
@@ -61,6 +66,10 @@ public class Prodotto {
         this.iva = iva;
     }
 
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+
     //MODULI
     Random randomCode = new Random();
 
@@ -76,4 +85,6 @@ public class Prodotto {
     public String infoCode(){
         return name+"-"+codeProduct;
     }
+
+
 }
