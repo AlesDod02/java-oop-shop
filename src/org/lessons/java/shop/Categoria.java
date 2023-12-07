@@ -8,7 +8,9 @@ public class Categoria {
 
     //COSTRUTTORI
 
-    public Categoria(String name, String description) {
+    public Categoria(String name, String description)throws IllegalArgumentException{
+        if (name == null || name.isEmpty() ){throw new IllegalArgumentException("devi inserire un nome della categoria valido");}
+        if (description == null|| description.isEmpty()){throw new IllegalArgumentException("devi inserire una descrizione della categoria valida");}
         this.nameCategory = name;
         this.descriptionCategory = description;
     }

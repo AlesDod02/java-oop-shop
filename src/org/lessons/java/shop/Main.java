@@ -12,24 +12,29 @@ public class Main {
 
         Prodotto[] listProducts = new Prodotto[numberOfProduct];
 
-        for (int i = 0; i < listProducts.length; i++) {
-            System.out.println("come si chiama il prodotto?");
-            String nameProduct = scan.nextLine();
-            System.out.println("aggiungi una descrizione del prodotto");
-            String descProduct = scan.nextLine();
-            System.out.println("quanto costa il prodotto?");
-            double priceProduct = Double.parseDouble(scan.nextLine());
-            System.out.println("quanta è l'iva?");
-            int ivaProduct = Integer.parseInt(scan.nextLine());
-            System.out.println("a che categoria appartiene ?");
-            String nameCategory = scan.nextLine();
-            System.out.println("inserisci descrizione categoria");
-            String descCategory = scan.nextLine();
-            Categoria newCategory = new Categoria(nameCategory, descCategory);
-            Prodotto product = new Prodotto(nameProduct, descProduct, priceProduct, ivaProduct, newCategory);
-            listProducts[i] = product;
+        try {
+            for (int i = 0; i < listProducts.length; i++) {
+                System.out.println("come si chiama il prodotto?");
+                String nameProduct = scan.nextLine();
+                System.out.println("aggiungi una descrizione del prodotto");
+                String descProduct = scan.nextLine();
+                System.out.println("quanto costa il prodotto?");
+                double priceProduct = Double.parseDouble(scan.nextLine());
+                System.out.println("quanta è l'iva?");
+                int ivaProduct = Integer.parseInt(scan.nextLine());
+                System.out.println("a che categoria appartiene ?");
+                String nameCategory = scan.nextLine();
+                System.out.println("inserisci descrizione categoria");
+                String descCategory = scan.nextLine();
+                Categoria newCategory = new Categoria(nameCategory, descCategory);
+                Prodotto product = new Prodotto(nameProduct, descProduct, priceProduct, ivaProduct, newCategory);
+                listProducts[i] = product;
 
 
+
+            }
+        } catch (IllegalArgumentException e) {
+            System.out.println("invalid data:" + e.getMessage());
         }
         System.out.println("i tuoi prodotti");
 
@@ -42,6 +47,7 @@ public class Main {
                         "prezzo con iva:" + listProducts[j].priceIva() + "€" +
                         " Categoria: " + category.getNameCategory() + " " + category.getDescriptionCategory());
             }
+
 
 
             scan.close();

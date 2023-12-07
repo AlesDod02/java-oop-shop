@@ -14,7 +14,12 @@ public class Prodotto {
 
     //COSTRUTTORI
 
-    public Prodotto(String name, String description, double price, int iva, Categoria categoria) {
+    public Prodotto(String name, String description, double price, int iva, Categoria categoria) throws IllegalArgumentException {
+        if (name == null || name.isEmpty() ){throw new IllegalArgumentException("devi inserire un nome valido");}
+        if (description == null || description.isEmpty() ){throw new IllegalArgumentException("devi inserire una descrizione valida");}
+        if (price<0 ){throw new IllegalArgumentException("devi inserire un numero valido");}
+        if (iva<0 ){throw new IllegalArgumentException("devi inserire un'iva valida");}
+        if (categoria == null ){throw new IllegalArgumentException("devi inserire una categoria valida");}
         this.name = name;
         this.description = description;
         this.price = price;
@@ -79,9 +84,14 @@ public class Prodotto {
         return price + (price*iva/100);
     }
 
-    public String info(){
-        return name;
+    @Override
+    public String toString() {
+        return "Prodotto{" +
+                "code=" + code +
+                ", name='" + name + '\'' +
+                '}';
     }
+
     public String infoCode(){
         return name+"-"+codeProduct;
     }
